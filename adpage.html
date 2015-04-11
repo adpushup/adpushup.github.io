@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>The web site of shubhamjain</title>
+    <style>
+      body {
+        background-color: #999999;
+      }
+      
+      h1 {
+        font-family: Tahoma;
+        font-size: 45px;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      function getParameterByName(name) {
+          name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+          var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+              results = regex.exec(location.search);
+          return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+      }
+      
+      document.write("<h1>" + getParameterByName("width") + " x " + getParameterByName("height") + "</h1>" );
+    </script>
+  </body>
+</html>
+    
