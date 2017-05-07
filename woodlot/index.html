@@ -56,7 +56,7 @@
                     <h3>Use Woodlot as an HTTP logger middleware</h3>
                     <pre class="prettyprint"> var express = require('express');
  var app = express();
- var woodlot = require('woddlot').middlewareLogger;
+ var woodlot = require('woodlot').middlewareLogger;
 
  app.use(woodlot({
     streams: ['./logs/app.log'],
@@ -69,8 +69,8 @@
         type: 'json',
         options: {
             cookies: true,
-            headers: false,
-            spacing: 8,
+            headers: true,
+            spacing: 4,
             separator: '\n'
         }
     }
@@ -127,7 +127,7 @@
                     <h3>Use Woodlot for custom logging</h3>
                     <pre class="prettyprint"> var express = require('express');
  var app = express();
- var woodlotCustomLogger = require('woddlot').customLogger;
+ var woodlotCustomLogger = require('woodlot').customLogger;
      
  var woodlot = new woodlotCustomLogger({
     streams: ['./logs/custom.log'],
@@ -135,7 +135,7 @@
     format: {
         type: 'json',
         options: {
-            spacing: 8,
+            spacing: 4,
             separator: '\n'
         }
     }
@@ -186,7 +186,7 @@ app.get('/', function(req, res) {
                     </pre>
                 </div>
                 <div class="col-sm-6">
-                    <h3>Use those events to capture log data and store them in a third party service or a database for aggregation and analysis</h3>
+                    <h3>Use those events to capture log data and send them to a third party service or save them in a database for aggregation and analysis</h3>
                     <pre class="prettyprint"> var woodlotEvents = require('woodlot').events;
  
  woodlotEvents.on('err', function(log) {
